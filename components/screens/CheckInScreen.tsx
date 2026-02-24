@@ -40,13 +40,27 @@ function playWelcomeChord() {
 }
 
 // ─── Shimmer particles ────────────────────────────────────────────────────────
-const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  delay: Math.random() * 1.5,
-  size: Math.random() * 3 + 1.5,
-  duration: Math.random() * 1.2 + 1.0,
-}));
+// Fixed values — no Math.random() at module level to avoid SSR/client mismatch.
+const PARTICLES = [
+  { id: 0,  x: 8,  delay: 0.0, size: 2.5, duration: 1.8 },
+  { id: 1,  x: 17, delay: 0.3, size: 1.8, duration: 1.4 },
+  { id: 2,  x: 26, delay: 0.9, size: 3.2, duration: 2.0 },
+  { id: 3,  x: 34, delay: 0.5, size: 2.0, duration: 1.6 },
+  { id: 4,  x: 41, delay: 1.2, size: 1.5, duration: 1.3 },
+  { id: 5,  x: 50, delay: 0.1, size: 4.0, duration: 2.1 },
+  { id: 6,  x: 57, delay: 0.7, size: 2.8, duration: 1.7 },
+  { id: 7,  x: 63, delay: 1.4, size: 1.6, duration: 1.5 },
+  { id: 8,  x: 70, delay: 0.4, size: 3.5, duration: 1.9 },
+  { id: 9,  x: 76, delay: 1.1, size: 2.2, duration: 1.4 },
+  { id: 10, x: 82, delay: 0.6, size: 1.7, duration: 2.0 },
+  { id: 11, x: 88, delay: 0.2, size: 3.0, duration: 1.6 },
+  { id: 12, x: 93, delay: 1.3, size: 2.4, duration: 1.8 },
+  { id: 13, x: 12, delay: 0.8, size: 1.5, duration: 1.3 },
+  { id: 14, x: 22, delay: 1.0, size: 2.9, duration: 2.2 },
+  { id: 15, x: 46, delay: 0.3, size: 3.8, duration: 1.5 },
+  { id: 16, x: 68, delay: 1.5, size: 2.1, duration: 1.9 },
+  { id: 17, x: 97, delay: 0.9, size: 1.6, duration: 1.7 },
+];
 
 // ─── Badge ────────────────────────────────────────────────────────────────────
 function Badge({
