@@ -1,6 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# ─── Dependencies ─────────────────────────────────────────────────────────────
 /node_modules
 /.pnp
 .pnp.*
@@ -10,32 +8,55 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
-
-# next.js
+# ─── Next.js ──────────────────────────────────────────────────────────────────
 /.next/
 /out/
-
-# production
 /build
+next-env.d.ts
+*.tsbuildinfo
 
-# misc
+# ─── Environment & Secrets ────────────────────────────────────────────────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ─── Vercel ───────────────────────────────────────────────────────────────────
+.vercel
+
+# ─── OS & Editor ──────────────────────────────────────────────────────────────
 .DS_Store
-*.pem
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
 
-# debug
+# ─── Logs & Debug ─────────────────────────────────────────────────────────────
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
 
-# env files (can opt-in for committing if needed)
-.env*
+# ─── Media & Large Assets ─────────────────────────────────────────────────────
+# Uncomment if you start adding local video/audio files
+# *.mp4
+# *.mov
+# *.mp3
+# *.wav
+# *.aac
 
-# vercel
-.vercel
+# Raw/working design files (not needed in repo)
+*.psd
+*.ai
+*.fig
+*.sketch
+*.xd
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# ─── Testing ──────────────────────────────────────────────────────────────────
+/coverage
+
+# ─── Misc ─────────────────────────────────────────────────────────────────────
+*.pem

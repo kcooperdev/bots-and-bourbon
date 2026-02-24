@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: #ededed;
+  
+  /* Custom Palette */
+  --gold: #E0AA3E;
+  --gold-dim: #9A7B4F;
+  --gold-light: #F2C94C;
+  --surface: #1A1A1A;
+  --surface-light: #2A2A2A;
+
+  /* Check-In Palette */
+  --electric-blue: #00C8FF;
+  --electric-blue-dim: #0080A8;
+  --hologram-glow: rgba(0, 200, 255, 0.15);
+}
+
+/* Hologram grid background for badge */
+@keyframes hologramGrid {
+  0%, 100% { opacity: 0.06; }
+  50% { opacity: 0.14; }
+}
+
+/* Gold shimmer particle float */
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-80px) scale(0.3); opacity: 0; }
+}
+
+/* Pulse ring for check-in loader */
+@keyframes pulseRing {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.hologram-grid {
+  background-image:
+    linear-gradient(rgba(0, 200, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 200, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  animation: hologramGrid 3s ease-in-out infinite;
+}
+
+.pulse-ring {
+  animation: pulseRing 1.8s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-dim: var(--gold-dim);
+  --color-gold-light: var(--gold-light);
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
+  --color-electric-blue: var(--electric-blue);
+  --color-electric-blue-dim: var(--electric-blue-dim);
+  
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar hiding for clean UI */
+::-webkit-scrollbar {
+  display: none;
 }
